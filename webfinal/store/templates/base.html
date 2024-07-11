@@ -1,0 +1,111 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>MasterBikes</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'media/favicon-32x32.png'%}">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'media/Masterbikes.png' %}" width="100" height="60" alt="Company logo">
+        </a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto m-2 mb-lg-0">
+            <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Inicio</a></li>
+            <li><a href="{% url 'products' %}" class="nav-link px-2 text-white">Productos</a></li>
+            <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">Nosotros</a></li>
+            
+          </ul>
+        </div>
+          
+        <form class="d-flex mx-3 align-items-center" role="search">
+          <input class="form-control m-2" type="search" name="search" placeholder="¿Qué estás buscando?" aria-label="Search">
+          <button class="btn btn-outline-light me-1 p-1 border-0" type="submit">
+            <img src="{% static 'media/magnifying glass_search_icon.png' %}" alt="Lupa">
+          </button>
+        </form>
+      <!-- 
+        <div class="text-end ms-5 me-2">
+          {% if user.is_authenticated %}
+          <div class="btn-group">
+              <button type="button" class="btn btn-secondary me-2" onclick="location.href='{% url 'profile' %}'">Perfil</button>
+              <form id="logout-form" method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Salir</button>
+              </form>
+          </div>
+          {% else %}
+          <div class="btn-group">
+              <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="location.href='{% url 'login' %}'">Ingresar</button>
+              <button type="button" class="btn btn-warning me-2" onclick="location.href='{% url 'register' %}'">Registrarse</button>
+          </div>
+          {% endif %}
+      </div>
+    -->  
+      </div>
+    </nav>
+  </header>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% block content %}
+  {% endblock %}
+
+  <!-- footer - company info -->
+  <section>
+    <div class="container-fluid">
+      <footer class="d-flex flex-wrap py-3 my-4 border-top bg-light">
+        <div class="col-md-4 text-body-secondary text-center border-end">
+          <h5 class="mb-3">Nuestra tienda</h5>
+          <p>Sucursales</p>
+          <p>Servicio técnico</p>
+          <p>Contacto</p>
+        </div>
+          
+        <div class="col-md-4 text-body-secondary text-center border-end">
+          <h5 class="mb-3">Métodos de pago</h5>
+            <img src="{% static 'media/visa_icon.png' %}" width="40">
+            <img src="{% static 'media/mastercard_curved_icon.png' %}" width="40">
+            <img src="{% static 'media/american_express_icon.png' %}" width="40">
+            <img src="{% static 'media/dinersclub_icon.png' %}" width="40">
+            <img src="{% static 'media/paypal_curved_icon.png' %}" width="40">
+        </div>
+
+        <div class="col-md-4 text-body-secondary text-center">
+          <h5 class="mb-3">¡Síguenos en redes sociales!</h5>
+            <img src="{% static 'media/facebook.png' %}" width="40" height="40">
+            <img src="{% static 'media/instagram.png' %}" width="45" height="45">
+            <img src="{% static 'media/twitter.png' %}" width="40" height="40">
+            <img src="{% static 'media/tiktok.png' %}" width="48" height="48">
+            <br>
+            <br>
+            <p class="text-center">© 2024 MasterBikes, S.A.</p>
+        </div>
+      </footer>
+    </div>
+  </section>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!--<script src="{% static 'js/script.js' %}"></script>-->
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}  
+
+<!-- Content -->
+<section id="about-us" class="container-lg">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-8 text-center text-md-start">
+      <h1 class="display-2">MasterBikes</h1>
+      <h2 class="display-5 text-muted">"Juntos sobre dos ruedas, unidos por nuestra pasión".</h2>
+      <p class="lead my-4 text-muted">
+        La fábrica de bicicletas "MasterBikes" tiene una historia arraigada en el corazón del barrio San Diego, donde ha estado operando durante más de 30 años. Nos especializamos en la fabricación de una amplia gama de bicicletas y triciclos para adultos y niños, diseñados para satisfacer las diversas necesidades de nuestros clientes. Nuestra empresa se destaca por nuestra dedicación a entender las necesidades de nuestros clientes. A lo largo de los años, hemos mantenido nuestra posición en el mercado gracias a nuestra capacidad para adaptar nuestros productos a las demandas cambiantes de nuestra comunidad local. Con una casa matriz y una sucursal dedicada a la venta, contamos con un equipo comprometido de supervisores y trabajadores que aseguran la calidad y satisfacción del cliente en cada interacción. En "MasterBikes", no solo fabricamos bicicletas, sino que también nos esforzamos por ser una parte integral de la vida de nuestra comunidad.
+      </p>
+    </div>
+    <div class="col-md-4 text-center d-md-block">
+      <img class="img-fluid" src="{% static 'media/about-0.jpg' %}" alt="Imagen relacionada" style="max-width: 100%">
+    </div>
+  </div>
+  <div class="col-md-6 text-center d-md-block my-3 m-2">
+    <div class="blurry-border">
+      <img class="img-fluid" src="{% static 'media/about-1.jpg' %}" alt="Imagen relacionada" style="max-width: 100%">
+    </div>
+  </div>
+</section>
+{% endblock %}
