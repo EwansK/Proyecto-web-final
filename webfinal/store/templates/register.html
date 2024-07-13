@@ -1,3 +1,96 @@
 {% extends 'base.html' %}
-
 {% load static %}
+{% block content %}
+<section>
+    <h1 class="text-center text-body-secondary my-3">Formulario de registro</h1>
+    <div class="container d-flex justify-content-center p-4">
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <input type="text" class="form-control" id="id_fname" name="fname" placeholder="Nombre" required>
+                <div class="form-text">Ingrese su nombre.</div>
+                {% if form.fname.errors %}
+                    {% for error in form.fname.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control" id="id_lname1" name="lname1" placeholder="Apellido Paterno" required>
+                <div class="form-text">Ingrese su apellido paterno.</div>
+                {% if form.lname1.errors %}
+                    {% for error in form.lname1.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control" id="id_lname2" name="lname2" placeholder="Apellido Materno" required>
+                <div class="form-text">Ingrese su apellido materno.</div>
+                {% if form.lname2.errors %}
+                    {% for error in form.lname2.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control" id="id_rut" name="rut" placeholder="Rut" required>
+                <div class="form-text">Ingrese su Rut.</div>
+                {% if form.rut.errors %}
+                    {% for error in form.rut.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="Correo Electrónico" required>
+                <div class="form-text">Ingrese su correo electrónico.</div>
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="email" class="form-control" id="id_confirm_email" name="confirm_email" placeholder="Confirmar Correo Electrónico" required>
+                <div class="form-text">Confirme su correo electrónico.</div>
+                {% if form.confirm_email.errors %}
+                    {% for error in form.confirm_email.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Contraseña" required>
+                <div class="form-text">Ingrese una contraseña.</div>
+                {% if form.password1.errors %}
+                    {% for error in form.password1.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirmar Contraseña" required>
+                <div class="form-text">Confirme su contraseña.</div>
+                {% if form.password2.errors %}
+                    {% for error in form.password2.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
