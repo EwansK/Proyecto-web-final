@@ -1,3 +1,20 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% block content %}
+<div class="container d-flex justify-content-center p-4">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Perfil de Usuario</h5>
+            <p class="card-text"><strong>Nombre:</strong> {{ customer.fname }}</p>
+            <p class="card-text"><strong>Apellido Paterno:</strong> {{ customer.lname1 }}</p>
+            <p class="card-text"><strong>Apellido Materno:</strong> {{ customer.lname2 }}</p>
+            <p class="card-text"><strong>RUT:</strong> {{ customer.rut }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+            <!-- Botones -->
+            <a href="{% url 'edit_profile' %}" class="btn btn-primary">Editar Perfil</a>
+            <a href="{% url 'delete_user' %}" class="btn btn-danger">Eliminar cuenta</a>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

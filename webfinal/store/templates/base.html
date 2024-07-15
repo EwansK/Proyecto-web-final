@@ -37,7 +37,7 @@
             <img src="{% static 'media/magnifying glass_search_icon.png' %}" alt="Lupa">
           </button>
         </form>
-      <!-- 
+      
         <div class="text-end ms-5 me-2">
           {% if user.is_authenticated %}
           <div class="btn-group">
@@ -54,20 +54,20 @@
           </div>
           {% endif %}
       </div>
-    -->  
+     
       </div>
     </nav>
   </header>
-
+  <div class="container-fluid">
   {% if messages %}
     {% for message in messages %}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
         {{ message }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     {% endfor %}
   {% endif %}
-
+  </div>
   {% block content %}
   {% endblock %}
 
