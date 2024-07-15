@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block content %}
 <section>
     <h1 class="text-center text-body-secondary my-3">Formulario de registro</h1>
     <div class="container d-flex justify-content-center p-4">
-        <form method="post">
+        <form method="post" id="form">
             {% csrf_token %}
             
             <div class="mb-3">
