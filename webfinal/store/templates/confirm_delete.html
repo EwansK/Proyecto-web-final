@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center p-4">
+    <div class="card text-center">
+        <div class="card-body">
+            <h2 class="card-title">Confirmar eliminación de cuenta</h2>
+            <p class="card-text">¿Está seguro de eliminar su cuenta de nuestro sitio? Esta acción NO se puede deshacer.</p>
+            <form method="post" class="d-flex justify-content-between">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Eliminar cuenta</button>
+                <a href="{% url 'edit_profile' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

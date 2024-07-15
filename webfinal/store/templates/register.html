@@ -8,7 +8,7 @@
             {% csrf_token %}
             
             <div class="mb-3">
-                <input type="text" class="form-control" id="id_fname" name="fname" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="id_fname" name="fname" placeholder="Nombre" autocomplete="given-name" required>
                 <div class="form-text">Ingrese su nombre.</div>
                 {% if form.fname.errors %}
                     {% for error in form.fname.errors %}
@@ -18,7 +18,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" id="id_lname1" name="lname1" placeholder="Apellido Paterno" required>
+                <input type="text" class="form-control" id="id_lname1" name="lname1" placeholder="Apellido Paterno" autocomplete="family-name" required>
                 <div class="form-text">Ingrese su apellido paterno.</div>
                 {% if form.lname1.errors %}
                     {% for error in form.lname1.errors %}
@@ -28,7 +28,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="text" class="form-control" id="id_lname2" name="lname2" placeholder="Apellido Materno" required>
+                <input type="text" class="form-control" id="id_lname2" name="lname2" placeholder="Apellido Materno" autocomplete="family-name" required>
                 <div class="form-text">Ingrese su apellido materno.</div>
                 {% if form.lname2.errors %}
                     {% for error in form.lname2.errors %}
@@ -48,7 +48,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="email" class="form-control" id="id_email" name="email" placeholder="Correo Electrónico" required>
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="Correo Electrónico" autocomplete="email" required>
                 <div class="form-text">Ingrese su correo electrónico.</div>
                 {% if form.email.errors %}
                     {% for error in form.email.errors %}
@@ -58,7 +58,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="email" class="form-control" id="id_confirm_email" name="confirm_email" placeholder="Confirmar Correo Electrónico" required>
+                <input type="email" class="form-control" id="id_confirm_email" name="confirm_email" placeholder="Confirmar Correo Electrónico" autocomplete="email" required>
                 <div class="form-text">Confirme su correo electrónico.</div>
                 {% if form.confirm_email.errors %}
                     {% for error in form.confirm_email.errors %}
@@ -68,7 +68,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Contraseña" required>
+                <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Contraseña" autocomplete="new-password" required>
                 <div class="form-text">Ingrese una contraseña.</div>
                 {% if form.password1.errors %}
                     {% for error in form.password1.errors %}
@@ -78,7 +78,7 @@
             </div>
 
             <div class="mb-3">
-                <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirmar Contraseña" required>
+                <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirmar Contraseña" autocomplete="new-password" required>
                 <div class="form-text">Confirme su contraseña.</div>
                 {% if form.password2.errors %}
                     {% for error in form.password2.errors %}

@@ -46,3 +46,14 @@ class CustomerCreationForm(UserCreationForm):
                 rut=self.cleaned_data['rut']
             )
         return user
+
+class CustomerUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ['fname', 'lname1', 'lname2', 'rut']
+        labels = {
+            'fname': 'Nombre',
+            'lname1': 'Apellido Paterno',
+            'lname2': 'Apellido Materno',
+            'rut': 'RUT',
+        }
