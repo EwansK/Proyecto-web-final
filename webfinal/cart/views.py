@@ -45,3 +45,6 @@ def cart_update(request):
         messages.success(request, 'Cantidad actualizada.')
         response = JsonResponse({'qty':product_qty})
     return response
+
+def payment_view(request):
+    return render(request, 'payment_view.html', {})
