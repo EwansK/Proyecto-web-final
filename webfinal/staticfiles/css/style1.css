@@ -1,0 +1,43 @@
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+header {
+    background-color: #343a40;
+    color: #fff;
+}
+.card {
+    margin: 1%;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    justify-content: space-between;
+    position:relative;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-text {
+    color: #555;
+}
+.card:hover {
+    cursor: pointer;
+}
+.card-precio{
+  color: rgb(71, 70, 70); 
+  font-weight: bold;
+}
+.div-cards{
+  margin-bottom: 10px;
+}
+.paginador{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.input-group-btn {
+  height: 0%; /* Ajustar la altura del botón según el tamaño del input */
+  width: 0%;
+}
+
