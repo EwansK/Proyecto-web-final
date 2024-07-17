@@ -90,28 +90,38 @@ function mostrar_validacion_rut(event) {
     }
 }
 
-const url = 'https://open-weather13.p.rapidapi.com/city/Valparaiso/ES';
+const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=-33.02457%2C%20-71.55183';
 const options = {
 	method: 'GET',
 	headers: {
 		'x-rapidapi-key': 'e409248f87msh4add5ff97de9119p1e68b3jsn67987a368a73',
-		'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+		'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com'
 	}
 };
 function convertToFahrenheit(fahrenheit) {
     return (fahrenheit - 32) * 5 / 9;
   }
-// Async function to fetch and display weather information
+
 async function fetchWeather() {
 	try {
-		const response = await fetch(url, options); // Await can only be used within async functions
+		const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 		const data = await response.json();
-        const temperatureCelsius = convertToFahrenheit(data.main.temp);
-		// Update weather data in the HTML
-		document.getElementById('temperature').textContent = `Temperatura: ${temperatureCelsius.toFixed(2)} °C`;
-		document.getElementById('weather-description').textContent = `Clima: ${data.weather[0].description}`;
-		document.getElementById('humidity').textContent = `Humedad: ${data.main.humidity} %`;
-		document.getElementById('wind-speed').textContent = `Viento: ${data.wind.speed} m/s`;
+
+    
+    if (!data || !data.current || !data.current.temp_c) {
+      throw new Error('Weather data not available');
+    }
+
+    
+    const temperatureCelsius = data.current.temp_c;
+		
+		document.getElementById('temperature-celsius').textContent = `Temperatura (C): ${temperatureCelsius} °C`;
+		document.getElementById('humidity').textContent = `Humedad: ${data.current.humidity} %`;
+		document.getElementById('wind-speed').textContent = `Viento: ${data.current.wind_kph} km/h`;
+
 	} catch (error) {
 		console.error('Error fetching weather data:', error);
 	}

@@ -13,13 +13,16 @@ def home_view(request):
 
 #Productos
 def products_view(request):
-    
     product_list = Product.objects.order_by('id')
     categories = Category.objects.all()
     category_id = request.GET.get('category')
-    
-    if category_id:
-        product_list = product_list.filter(category_id=category_id)
+
+    if category_id and category_id != '0': 
+        try:
+            category_id = int(category_id)
+            product_list = product_list.filter(category_id=category_id)
+        except ValueError:
+            pass
 
     paginator = Paginator(product_list, 12)
     page_number = request.GET.get('page')
@@ -30,7 +33,7 @@ def products_view(request):
         'page_obj': page_obj,
         'is_paginated': page_obj.has_other_pages(),
         'categories': categories,
-        'selected_category': int(category_id) if category_id else None,
+        'selected_category': category_id if category_id and category_id != '0' else None,
     }
 
     return render(request, 'products.html', context)
