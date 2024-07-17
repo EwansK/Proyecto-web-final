@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = currentUrl.href;
         });
     }
+    fetchWeather();
 });
 
 
@@ -88,3 +89,33 @@ function mostrar_validacion_rut(event) {
         }, 2000);
     }
 }
+
+const url = 'https://open-weather13.p.rapidapi.com/city/Valparaiso/ES';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'e409248f87msh4add5ff97de9119p1e68b3jsn67987a368a73',
+		'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+	}
+};
+function convertToFahrenheit(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+  }
+// Async function to fetch and display weather information
+async function fetchWeather() {
+	try {
+		const response = await fetch(url, options); // Await can only be used within async functions
+		const data = await response.json();
+        const temperatureCelsius = convertToFahrenheit(data.main.temp);
+		// Update weather data in the HTML
+		document.getElementById('temperature').textContent = `Temperatura: ${temperatureCelsius.toFixed(2)} °C`;
+		document.getElementById('weather-description').textContent = `Clima: ${data.weather[0].description}`;
+		document.getElementById('humidity').textContent = `Humedad: ${data.main.humidity} %`;
+		document.getElementById('wind-speed').textContent = `Viento: ${data.wind.speed} m/s`;
+	} catch (error) {
+		console.error('Error fetching weather data:', error);
+	}
+}
+
+
+
